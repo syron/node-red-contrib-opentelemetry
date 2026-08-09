@@ -209,7 +209,7 @@ RED.nodes.registerType('OpenTelemetry', {
               $('<input/>', { class: 'node-input-otelAttributeMapping-flow', type: 'text', placeholder: 'Flow id or empty for all flows', title: 'Flow id or empty for all flows', value: opt.attributeMapping.flow }),
               $('<input/>', { class: 'node-input-otelAttributeMapping-nodeType', type: 'text', placeholder: 'Node type or empty for all types', title: 'Node type or empty for all types', value: opt.attributeMapping.nodeType }),
               $('<input/>', { class: 'node-input-otelAttributeMapping-key', type: 'text', placeholder: 'OTEL attribute key', title: 'OTEL attribute key', value: opt.attributeMapping.key }),
-              $('<input/>', { class: 'node-input-otelAttributeMapping-path', type: 'text', placeholder: 'Msg path to data', title: 'Msg path to data', value: opt.attributeMapping.path }),
+              $('<input/>', { class: 'node-input-otelAttributeMapping-path', type: 'text', placeholder: 'Msg path to data / "value"', title: 'Msg path to data or fixed "value"', value: opt.attributeMapping.path }),
             ),
         )
         const timings = [
@@ -364,7 +364,7 @@ RED.nodes.registerType('OpenTelemetry', {
     <li>the <code>flow</code> identifier involved (you can leave this field empty to use in all flows),</li>
     <li>the <code>nodeType</code> involved (examples: <code>http in</code>, <code>http request</code>, <code>file in</code>, ... , you can leave this field empty to use in all node types),</li>
     <li>an <a href="https://opentelemetry.io/docs/concepts/signals/traces/#attributes" target="_blank" rel="noopener noreferrer">OTEL span attribute <code>key</code></a> (<code>node_red.action</code> for example)</li>
-    <li>the <code>path</code> in the processed message object in <a href="https://jmespath.org/" target="_blank" rel="noopener noreferrer">JMESPath syntax</a>, starting after <code>msg.</code> (<code>payload.action</code> for example)</li>
+    <li>the <code>path</code> in the processed message object in <a href="https://jmespath.org/" target="_blank" rel="noopener noreferrer">JMESPath syntax</a>, starting after <code>msg.</code> (<code>payload.action</code> for example); alternatively, you can specify the attribute value as a fixed string enclosed in single or double quotes (e.g., <code>"myValue"</code>)</li>
   </ul></p>
   <p>This node should only be added once for all your Node-Red flows (regardless of location).</p>
   <h3>References</h3>
