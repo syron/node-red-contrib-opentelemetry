@@ -94,6 +94,9 @@ RED.nodes.registerType('OpenTelemetry', {
     rootPrefix: {
       value: 'Message ',
     },
+    hasFlowNameInRoot: {
+      value: true,
+    },
     timeout: {
       value: 10,
       required: true,
@@ -305,6 +308,10 @@ RED.nodes.registerType('OpenTelemetry', {
   <div class="form-row" title="Prefix added in the root Node-RED span name before initial node name">
     <label for="node-input-rootPrefix"><i class="fa fa-tag"></i> Root prefix</label>
     <input type="text" id="node-input-rootPrefix" placeholder="Message ">
+  </div>
+  <div class="form-row" title="Add the flow name in the root Node-RED span name before initial node name">
+    <label for="node-input-hasFlowNameInRoot"><i class="fa fa-tag"></i> Flow name</label>
+    <input type="checkbox" id="node-input-hasFlowNameInRoot" style="display: inline-block; width: auto; vertical-align: top;">
   </div>
   <div class="form-row" title="Do not trace nodes of these types">
     <label for="node-input-ignoredTypes"><i class="fa fa-ban"></i> Ignored</label>
